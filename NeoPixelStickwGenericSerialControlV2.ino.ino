@@ -1,3 +1,4 @@
+
 /**
   This is NeoPixelStick control program with the  generic serial control V2 (non-blocking), created for defining and testing a standard method of serial communication that allows both
   1. realtime, quick-changing control, as well as
@@ -63,7 +64,7 @@
 #include <Adafruit_NeoPixel.h>
 #define PIN 11
 const  int nLEDs = 12; // Number of RGB LEDs:
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(nLEDs, PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(nLEDs, PIN, NEO_RGB + NEO_KHZ800);
 
 //PROGRAM CONTROL
 const byte ArduinoLedPin =  13  ;   // NOT the NeoPixel data pin!! the number of the Arduino LED pin - it's blinking helps seeing if the program runs
@@ -467,7 +468,7 @@ void SetDiagnostic() //Mode 99 is CONFIG. Bytes set: Diagnostic, Delay
 void SetBunchOfLeds(int StartLed, int NrLeds, int skip, int r, int g, int b) {
   int i = StartLed;
   for ( i = 0; i < NrLeds; i++) {
-    strip.setPixelColor((StartLed +(i * (skip+1)x)), strip.Color(r, g, b));
+    strip.setPixelColor((StartLed +(i * (skip+1))), strip.Color(r, g, b));
   }
 } //end SetBunchOfLeds
 
